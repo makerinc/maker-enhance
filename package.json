@@ -20,6 +20,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.1",
@@ -27,19 +29,23 @@
     "eslint-loader": "^2.0.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
-    "prettier": "^1.11.1"
+    "jest": "^22.4.3",
+    "prettier": "^1.11.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
+    "regenerator-runtime": "^0.11.1"
   },
   "scripts": {
-    "prettier:fix": "prettier --write \"{src,spec}/**/*.js\"",
-    "eslint": "eslint \"{src,spec}/**/*.js\"",
-    "eslint:fix": "eslint --fix \"{src,spec}/**/*.js\"",
+    "prettier:fix": "prettier --write \"{src,__tests__}/**/*.js\"",
+    "eslint": "eslint \"{src,__tests__}/**/*.js\"",
+    "eslint:fix": "eslint --fix \"{src,__tests__}/**/*.js\"",
     "lint": "yarn eslint",
     "lint:fix": "yarn prettier:fix && yarn eslint:fix",
     "babel": "babel src --out-dir lib",
-    "build": "npm run lint:fix && npm run babel",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "build": "npm run lint:fix && npm test && npm run babel",
     "prepublish": "npm run build"
-  },
-  "babel": {
-    "presets": ["es2015", "react"]
   }
 }
