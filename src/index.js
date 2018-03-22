@@ -13,7 +13,7 @@ export default class MakerEnahance extends React.Component {
   addScript() {
     let script = document.querySelector("#maker-enhance-script");
 
-    if (script) {
+    if (script || !this.props.user) {
       return this.run();
     }
 
