@@ -50,7 +50,9 @@
     "babel": "babel src --out-dir lib",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "build": "npm run lint:fix && npm test && npm run babel",
-    "prepublish": "npm run build"
+    "build": "yarn run lint:fix && yarn test && yarn run babel",
+    "prepublish": "yarn run build",
+    "preversion": "yarn run build",
+    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
   }
 }
