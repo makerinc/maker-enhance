@@ -53,6 +53,6 @@
     "build": "yarn run lint:fix && yarn test && yarn run babel",
     "prepublish": "yarn run build",
     "preversion": "yarn run build",
-    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
+    "postversion": "yarn tag add $npm_package_name@$npm_package_version latest && git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
   }
 }
