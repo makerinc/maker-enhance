@@ -23,7 +23,7 @@ test("MakerEnhance renders div with default index", () => {
 
   expect(tree).toMatchSnapshot();
   expect(scripts.length).toBe(1);
-  expect(scripts[0].src).toBe("https://maker.me/enhance/linkesch.js");
+  expect(scripts[0].src).toBe("https://app.maker.co/enhance/linkesch.js");
 });
 
 test("MakerEnhance renders div with provided index", () => {

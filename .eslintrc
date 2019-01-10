@@ -22,8 +22,12 @@
       "rest": true,
       "superInFunctions": true,
       "templateStrings": true,
-      "experimentalObjectRestSpread": true,
       "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     }
   },
   "rules": {
