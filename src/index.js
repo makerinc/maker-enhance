@@ -1,13 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class MakerEnahance extends React.Component {
+export default class MakerEnhance extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      url: window.location.href
+    };
+  }
+
   componentDidMount() {
     this.addScript();
   }
 
-  componentDidUpdate() {
-    this.run();
+  componentDidUpdate(prevProps) {
+    let urlUpdated = false;
+
+    if (window.location.href !== this.state.url) {
+      this.updateUrl();
+      urlUpdated = true;
+    }
+
+    if (this.props.index !== prevProps.index || urlUpdated) {
+      this.run();
+    }
+  }
+
+  updateUrl() {
+    this.setState({
+      url: window.location.href
+    });
   }
 
   addScript() {
@@ -46,6 +69,6 @@ export default class MakerEnahance extends React.Component {
   }
 }
 
-MakerEnahance.propTypes = {
+MakerEnhance.propTypes = {
   user: PropTypes.string.isRequired
 };
