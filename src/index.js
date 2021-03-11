@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+function isBrowser() {
+  return typeof window !== "undefined";
+}
+
 export default class MakerEnhance extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      url: window.location.href
+      url: isBrowser() && window.location.href
     };
   }
 
@@ -17,7 +21,7 @@ export default class MakerEnhance extends React.Component {
   componentDidUpdate(prevProps) {
     let urlUpdated = false;
 
-    if (window.location.href !== this.state.url) {
+    if (isBrowser() && window.location.href !== this.state.url) {
       this.updateUrl();
       urlUpdated = true;
     }
@@ -29,25 +33,28 @@ export default class MakerEnhance extends React.Component {
 
   updateUrl() {
     this.setState({
-      url: window.location.href
+      url: isBrowser() && window.location.href
     });
   }
 
   addScript() {
-    let script = document.querySelector("#maker-enhance-script");
-
-    if (script || !this.props.user) {
+    if (!isBrowser() || !this.props.user || window.MakerEmbeds) {
       return this.run();
     }
 
-    script = document.createElement("script");
+    const script = document.createElement("script");
     script.id = "maker-enhance-script";
-    script.src = `https://app.maker.co/enhance/${this.props.user}.js`;
+    script.src = this.script;
+    script.src = true;
     document.head.appendChild(script);
   }
 
+  get script() {
+    return `https://app.maker.co/enhance/${this.props.user}.js`;
+  }
+
   run() {
-    if (typeof (window.MakerEmbeds || {}).run !== "function") {
+    if (!isBrowser() || typeof (window.MakerEmbeds || {}).run !== "function") {
       return;
     }
 
@@ -59,6 +66,7 @@ export default class MakerEnhance extends React.Component {
 
     return (
       <div className="js-maker-enhance-wrapper">
+        <script src={this.script} id="maker-enhance-script" async />
         <div
           id={`js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-${index}`}
           className="js-maker-enhance-static-mount"
