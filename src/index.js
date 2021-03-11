@@ -45,7 +45,7 @@ export default class MakerEnhance extends React.Component {
     const script = document.createElement("script");
     script.id = "maker-enhance-script";
     script.src = this.script;
-    script.src = true;
+    script.async = true;
     document.head.appendChild(script);
   }
 
