@@ -71,6 +71,7 @@ export default class MakerEnhance extends React.Component {
           id={`js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-${index}`}
           className="js-maker-enhance-static-mount"
           style={{ height: "auto", width: "100%" }}
+          data-loading-height={this.props.loadingHeight}
         />
       </div>
     );
@@ -78,5 +79,7 @@ export default class MakerEnhance extends React.Component {
 }
 
 MakerEnhance.propTypes = {
-  user: PropTypes.string.isRequired
+  user: PropTypes.string.isRequired,
+  index: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  loadingHeight: PropTypes.number
 };

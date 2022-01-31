@@ -80,3 +80,12 @@ test("MakerEnhance should not call run() function on useless update", () => {
 
   expect(window.MakerEmbeds.run).toHaveBeenCalledTimes(1);
 });
+
+test("MakerEnhance should support loadingHeight prop", () => {
+  const component = renderer.create(
+    <MakerEnhance user="linkesch" loadingHeight={100} />
+  );
+  const tree = component.toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
