@@ -1,4 +1,9 @@
-# 1.1.0 / 2023-01-31
+
+# 1.2.0 / 2022-09-13
+
+- Add React 18 to peerDependencies
+
+# 1.1.0 / 2022-01-31
 
 - Add support for `loadingHeight` prop
 
