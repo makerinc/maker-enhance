@@ -1,3 +1,6 @@
+# 1.2.2 / 2023-07-13
+
+- Fix support for hydration
 
 # 1.2.0 / 2022-09-13
 
