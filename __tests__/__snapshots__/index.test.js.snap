@@ -3,7 +3,6 @@
 exports[`MakerEnhance renders div with default index 1`] = `
 <div
   className="js-maker-enhance-wrapper"
-  suppressHydrationWarning={true}
 >
   <script
     async={true}
@@ -19,7 +18,6 @@ exports[`MakerEnhance renders div with default index 1`] = `
         "width": "100%",
       }
     }
-    suppressHydrationWarning={true}
   />
 </div>
 `;
@@ -27,7 +25,6 @@ exports[`MakerEnhance renders div with default index 1`] = `
 exports[`MakerEnhance renders div with provided index 1`] = `
 <div
   className="js-maker-enhance-wrapper"
-  suppressHydrationWarning={true}
 >
   <script
     async={true}
@@ -43,7 +40,6 @@ exports[`MakerEnhance renders div with provided index 1`] = `
         "width": "100%",
       }
     }
-    suppressHydrationWarning={true}
   />
 </div>
 `;
@@ -51,7 +47,6 @@ exports[`MakerEnhance renders div with provided index 1`] = `
 exports[`MakerEnhance should not add script if user prop is not provided 1`] = `
 <div
   className="js-maker-enhance-wrapper"
-  suppressHydrationWarning={true}
 >
   <script
     async={true}
@@ -67,7 +62,6 @@ exports[`MakerEnhance should not add script if user prop is not provided 1`] = `
         "width": "100%",
       }
     }
-    suppressHydrationWarning={true}
   />
 </div>
 `;
@@ -75,7 +69,6 @@ exports[`MakerEnhance should not add script if user prop is not provided 1`] = `
 exports[`MakerEnhance should support loadingHeight prop 1`] = `
 <div
   className="js-maker-enhance-wrapper"
-  suppressHydrationWarning={true}
 >
   <script
     async={true}
@@ -92,7 +85,6 @@ exports[`MakerEnhance should support loadingHeight prop 1`] = `
         "width": "100%",
       }
     }
-    suppressHydrationWarning={true}
   />
 </div>
 `;

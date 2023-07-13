@@ -65,14 +65,13 @@ export default class MakerEnhance extends React.Component {
     const index = this.props.index || 0;
 
     return (
-      <div className="js-maker-enhance-wrapper" suppressHydrationWarning={true}>
+      <div className="js-maker-enhance-wrapper">
         <script src={this.script} id="maker-enhance-script" async />
         <div
           id={`js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-${index}`}
           className="js-maker-enhance-static-mount"
           style={{ height: "auto", width: "100%" }}
           data-loading-height={this.props.loadingHeight}
-          suppressHydrationWarning={true}
         />
       </div>
     );
