@@ -1,3 +1,6 @@
+# 1.2.1 / 2023-07-13
+
+- Improve hydration for SSR/SSG
 
 # 1.2.0 / 2022-09-13
 
