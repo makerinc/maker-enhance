@@ -76,7 +76,7 @@ export default class MakerEnhance extends React.Component {
             ? `data-loading-height="${this.props.loadingHeight}"`
             : ""
         }
-      />
+      ></div>
     `;
 
     // https://github.com/facebook/react/issues/10923#issuecomment-338715787

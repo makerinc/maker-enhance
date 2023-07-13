@@ -12,7 +12,7 @@ exports[`MakerEnhance renders div with default index 1`] = `
         class=\\"js-maker-enhance-static-mount\\"
         style=\\"height:auto;width:100%\\"
         
-      />
+      ></div>
     ",
     }
   }
@@ -32,7 +32,7 @@ exports[`MakerEnhance renders div with provided index 1`] = `
         class=\\"js-maker-enhance-static-mount\\"
         style=\\"height:auto;width:100%\\"
         
-      />
+      ></div>
     ",
     }
   }
@@ -52,7 +52,7 @@ exports[`MakerEnhance should not add script if user prop is not provided 1`] = `
         class=\\"js-maker-enhance-static-mount\\"
         style=\\"height:auto;width:100%\\"
         
-      />
+      ></div>
     ",
     }
   }
@@ -72,7 +72,7 @@ exports[`MakerEnhance should support loadingHeight prop 1`] = `
         class=\\"js-maker-enhance-static-mount\\"
         style=\\"height:auto;width:100%\\"
         data-loading-height=\\"100\\"
-      />
+      ></div>
     ",
     }
   }
