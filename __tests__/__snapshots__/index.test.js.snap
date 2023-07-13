@@ -16,6 +16,7 @@ exports[`MakerEnhance renders div with default index 1`] = `
     ",
     }
   }
+  suppressHydrationWarning={true}
 />
 `;
 
@@ -35,6 +36,7 @@ exports[`MakerEnhance renders div with provided index 1`] = `
     ",
     }
   }
+  suppressHydrationWarning={true}
 />
 `;
 
@@ -54,6 +56,7 @@ exports[`MakerEnhance should not add script if user prop is not provided 1`] = `
     ",
     }
   }
+  suppressHydrationWarning={true}
 />
 `;
 
@@ -73,5 +76,6 @@ exports[`MakerEnhance should support loadingHeight prop 1`] = `
     ",
     }
   }
+  suppressHydrationWarning={true}
 />
 `;

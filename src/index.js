@@ -79,10 +79,15 @@ export default class MakerEnhance extends React.Component {
       />
     `;
 
+    // https://github.com/facebook/react/issues/10923#issuecomment-338715787
+    // "We won't try to manipulate the tree of a dangerouslySetInnerHTML node on the client. Even if it is wrong."
+    //
+    // Use dangerouslySetInnerHTML to avoid issues with hydration.
     return (
       <div
         className="js-maker-enhance-wrapper"
         dangerouslySetInnerHTML={{ __html: html }}
+        suppressHydrationWarning={true}
       />
     );
   }
