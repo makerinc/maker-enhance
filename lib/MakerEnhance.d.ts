@@ -1,8 +1,8 @@
 /// <reference types="react" />
 interface MakerEnhanceProps {
     user: string;
-    index?: number;
-    loadingHeight?: string;
+    instanceId?: string | number;
+    loadingHeight?: number;
 }
-export default function MakerEnhance({ user, index, loadingHeight }: MakerEnhanceProps): JSX.Element;
+export default function MakerEnhance({ user, instanceId, loadingHeight, }: MakerEnhanceProps): JSX.Element;
 export {};
