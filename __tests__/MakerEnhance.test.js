@@ -3,21 +3,26 @@ import renderer from "react-test-renderer";
 import MakerEnhance from "../src/MakerEnhance";
 
 let mocks = {};
+let component;
 
 beforeEach(() => {
   document.head.innerHTML = "";
 });
 
 afterEach(() => {
+  if (window.MakerEmbeds && window.MakerEmbeds.run) {
+    window.MakerEmbeds.run.mockClear();
+  }
+
   Object.keys(mocks).forEach(key => {
     mocks[key].mockRestore();
   });
 
   mocks = {};
+  component.unmount();
 });
 
 test("MakerEnhance renders div with default index", async () => {
-  let component;
   await renderer.act(async () => {
     component = renderer.create(<MakerEnhance user="linkesch" />);
   });
@@ -30,7 +35,6 @@ test("MakerEnhance renders div with default index", async () => {
 });
 
 test("MakerEnhance renders div with provided index", async () => {
-  let component;
   await renderer.act(async () => {
     component = renderer.create(<MakerEnhance user="linkesch" index="2" />);
   });
@@ -44,7 +48,6 @@ test("MakerEnhance should not add script if user prop is not provided", async ()
     error: jest.spyOn(window.console, "error").mockImplementation(() => null)
   };
 
-  let component;
   await renderer.act(async () => {
     component = renderer.create(<MakerEnhance />);
   });
@@ -60,7 +63,6 @@ test("MakerEnhance should call run() function on props update", async () => {
     run: jest.fn()
   };
 
-  let component;
   await renderer.act(async () => {
     component = renderer.create(<MakerEnhance user="linkesch" />);
   });
@@ -76,7 +78,6 @@ test("MakerEnhance should call run() function on update when also url changes", 
     run: jest.fn()
   };
 
-  let component;
   await renderer.act(async () => {
     component = renderer.create(<MakerEnhance user="linkesch" />);
   });
@@ -94,7 +95,6 @@ test("MakerEnhance should not call run() function on useless update", async () =
     run: jest.fn()
   };
 
-  let component;
   await renderer.act(async () => {
     component = renderer.create(<MakerEnhance user="linkesch" />);
   });
@@ -106,7 +106,6 @@ test("MakerEnhance should not call run() function on useless update", async () =
 });
 
 test("MakerEnhance should support loadingHeight prop", async () => {
-  let component;
   await renderer.act(async () => {
     component = renderer.create(
       <MakerEnhance user="linkesch" loadingHeight={100} />
