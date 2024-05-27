@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import history from "history/browser";
 
 interface MakerEnhanceClientProps {
   user: string;
@@ -48,16 +47,24 @@ export default function MakerEnhanceClient({
 
   useEffect(
     () => {
-      const unlisten = history.listen(({ location }) => {
+      const handleRouteChange = () => {
         const newUrl = getUrl();
         if (newUrl !== url) {
           setUrl(newUrl);
         }
-      });
-
-      return () => {
-        unlisten();
       };
+
+      if (isBrowser() && "onnavigate" in window) {
+        window.addEventListener("navigate", handleRouteChange);
+        return () => {
+          window.removeEventListener("navigate", handleRouteChange);
+        };
+      } else {
+        const intervalId = setInterval(handleRouteChange, 100);
+        return () => {
+          clearInterval(intervalId);
+        };
+      }
     },
     [url]
   );
