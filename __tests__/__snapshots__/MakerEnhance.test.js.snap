@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MakerEnhance renders div with default index 1`] = `
+<div
+  className="js-maker-enhance-wrapper"
+  dangerouslySetInnerHTML={
+    {
+      "__html": "
+    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async="true"></script>
+    <div
+      id="js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-0"
+      class="js-maker-enhance-static-mount"
+      style="height:auto;width:100%"
+      
+    ></div>
+  ",
+    }
+  }
+  suppressHydrationWarning={true}
+/>
+`;
+
+exports[`MakerEnhance renders div with provided index 1`] = `
+<div
+  className="js-maker-enhance-wrapper"
+  dangerouslySetInnerHTML={
+    {
+      "__html": "
+    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async="true"></script>
+    <div
+      id="js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-2"
+      class="js-maker-enhance-static-mount"
+      style="height:auto;width:100%"
+      
+    ></div>
+  ",
+    }
+  }
+  suppressHydrationWarning={true}
+/>
+`;
+
+exports[`MakerEnhance should not add script if user prop is not provided 1`] = `
+<div
+  className="js-maker-enhance-wrapper"
+  dangerouslySetInnerHTML={
+    {
+      "__html": "
+    <script src="https://app.maker.co/enhance/undefined.js" id="maker-enhance-script" async="true"></script>
+    <div
+      id="js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-0"
+      class="js-maker-enhance-static-mount"
+      style="height:auto;width:100%"
+      
+    ></div>
+  ",
+    }
+  }
+  suppressHydrationWarning={true}
+/>
+`;
+
+exports[`MakerEnhance should support loadingHeight prop 1`] = `
+<div
+  className="js-maker-enhance-wrapper"
+  dangerouslySetInnerHTML={
+    {
+      "__html": "
+    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async="true"></script>
+    <div
+      id="js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-0"
+      class="js-maker-enhance-static-mount"
+      style="height:auto;width:100%"
+      data-loading-height="100"
+    ></div>
+  ",
+    }
+  }
+  suppressHydrationWarning={true}
+/>
+`;
