@@ -10,7 +10,11 @@ interface MakerEnhanceClientProps {
 
 declare global {
   interface Window {
-    MakerEmbeds: any;
+    MakerEmbeds:
+      | {
+          run: () => void;
+        }
+      | undefined;
   }
 }
 
@@ -19,7 +23,11 @@ function isBrowser(): boolean {
 }
 
 function run(): void {
-  if (isBrowser() && typeof (window.MakerEmbeds || {}).run === "function") {
+  if (
+    isBrowser() &&
+    window.MakerEmbeds &&
+    typeof window.MakerEmbeds.run === "function"
+  ) {
     window.MakerEmbeds.run();
   }
 }
@@ -27,7 +35,7 @@ function run(): void {
 export default function MakerEnhanceClient({
   user,
   id,
-  scriptSrc
+  scriptSrc,
 }: MakerEnhanceClientProps): JSX.Element {
   const getUrl = () => {
     return isBrowser() ? window.location.href : undefined;
@@ -57,28 +65,22 @@ export default function MakerEnhanceClient({
     run();
   };
 
-  useEffect(
-    () => {
-      const interval = setInterval(() => {
-        const newUrl = getUrl();
-        if (newUrl !== url) {
-          changeUrl(newUrl);
-        }
-      }, 100);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newUrl = getUrl();
+      if (newUrl !== url) {
+        changeUrl(newUrl);
+      }
+    }, 100);
 
-      return () => {
-        clearInterval(interval);
-      };
-    },
-    [url, id]
-  );
+    return () => {
+      clearInterval(interval);
+    };
+  }, [url, id]);
 
-  useEffect(
-    () => {
-      run();
-    },
-    [id]
-  );
+  useEffect(() => {
+    run();
+  }, [id]);
 
   return <></>;
 }
