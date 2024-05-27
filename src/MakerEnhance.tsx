@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import useMakerEnhance from "./useMakerEnhance";
+import React from "react";
+import MakerEnhanceClient from "./MakerEnhanceClient";
 
 interface MakerEnhanceProps {
   user: string;
@@ -13,7 +13,6 @@ export default function MakerEnhance({
   loadingHeight
 }: MakerEnhanceProps): JSX.Element {
   const scriptSrc = `https://app.maker.co/enhance/${user}.js`;
-  useMakerEnhance({ user, index, scriptSrc });
 
   const html = `
     <script src="${scriptSrc}" id="maker-enhance-script" async="true"></script>
@@ -31,10 +30,13 @@ export default function MakerEnhance({
   //
   // Use dangerouslySetInnerHTML to avoid issues with hydration.
   return (
-    <div
-      className="js-maker-enhance-wrapper"
-      dangerouslySetInnerHTML={{ __html: html }}
-      suppressHydrationWarning={true}
-    />
+    <>
+      <MakerEnhanceClient user={user} index={index} scriptSrc={scriptSrc} />
+      <div
+        className="js-maker-enhance-wrapper"
+        dangerouslySetInnerHTML={{ __html: html }}
+        suppressHydrationWarning={true}
+      />
+    </>
   );
 }

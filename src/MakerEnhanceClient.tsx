@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-interface UseMakerEnhanceProps {
+interface MakerEnhanceClientProps {
   user: string;
   index?: number;
   scriptSrc: string;
@@ -28,7 +28,7 @@ export default function useMakerEnhance({
   user,
   index,
   scriptSrc
-}: UseMakerEnhanceProps) {
+}: MakerEnhanceClientProps): JSX.Element {
   const [url, setUrl] = useState(
     isBrowser() ? window.location.href : undefined
   );
@@ -55,4 +55,6 @@ export default function useMakerEnhance({
     },
     [index, url]
   );
+
+  return <></>;
 }
