@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useMakerEnhance from "./useMakerEnhance";
 
 interface MakerEnhanceProps {
   user: string;
@@ -6,54 +7,13 @@ interface MakerEnhanceProps {
   loadingHeight?: string;
 }
 
-declare global {
-  interface Window {
-    MakerEmbeds: any;
-  }
-}
-
-function isBrowser(): boolean {
-  return typeof window !== "undefined";
-}
-
-function run(): void {
-  if (isBrowser() && typeof (window.MakerEmbeds || {}).run === "function") {
-    window.MakerEmbeds.run();
-  }
-}
-
 export default function MakerEnhance({
   user,
   index,
   loadingHeight
 }: MakerEnhanceProps): JSX.Element {
-  const [url, setUrl] = useState(
-    isBrowser() ? window.location.href : undefined
-  );
   const scriptSrc = `https://app.maker.co/enhance/${user}.js`;
-
-  useEffect(() => {
-    if (isBrowser() && user && !window.MakerEmbeds) {
-      const script = document.createElement("script");
-      script.id = "maker-enhance-script";
-      script.src = scriptSrc;
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isBrowser() && window.location.href !== url) {
-      setUrl(window.location.href);
-    }
-  });
-
-  useEffect(
-    () => {
-      run();
-    },
-    [index, url]
-  );
+  useMakerEnhance({ user, index, scriptSrc });
 
   const html = `
     <script src="${scriptSrc}" id="maker-enhance-script" async="true"></script>
