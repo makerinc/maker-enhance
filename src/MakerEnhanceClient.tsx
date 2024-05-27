@@ -44,12 +44,21 @@ export default function MakerEnhanceClient({
     }
   }, []);
 
-  useEffect(() => {
-    const newUrl = getUrl();
-    if (newUrl !== url) {
-      setUrl(newUrl);
-    }
-  });
+  useEffect(
+    () => {
+      const interval = setInterval(() => {
+        const newUrl = getUrl();
+        if (newUrl !== url) {
+          setUrl(newUrl);
+        }
+      }, 100);
+
+      return () => {
+        clearInterval(interval);
+      };
+    },
+    [url]
+  );
 
   useEffect(
     () => {
