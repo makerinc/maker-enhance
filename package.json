@@ -8,6 +8,7 @@
     "maker",
     "embed"
   ],
+  "type": "module",
   "main": "lib/index.js",
   "author": "Pavel Linkesch",
   "license": "MIT",
