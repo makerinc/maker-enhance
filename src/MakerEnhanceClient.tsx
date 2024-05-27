@@ -48,12 +48,9 @@ export default function MakerEnhanceClient({
     setUrl(newUrl);
 
     const embed = document.querySelector(`[data-orig-id="${id}"]`);
-    if (embed && embed.parentElement) {
-      embed.parentElement.removeChild(embed);
-    }
-
     const placeholder = document.querySelector(`#${id}`);
-    if (placeholder) {
+    if (placeholder && embed && embed.parentElement) {
+      embed.parentElement.removeChild(embed);
       placeholder.removeAttribute("data-maker-loaded");
     }
 
