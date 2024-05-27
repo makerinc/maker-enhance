@@ -29,11 +29,10 @@ export default function MakerEnhanceClient({
   index,
   scriptSrc
 }: MakerEnhanceClientProps): JSX.Element {
-  function getUrl() {
-    return `${location.pathname}${location.search}${location.hash}`;
-  }
-
-  const [url, setUrl] = useState(isBrowser() ? getUrl() : undefined);
+  const getUrl = () => {
+    return isBrowser() ? window.location.href : undefined;
+  };
+  const [url, setUrl] = useState(getUrl());
 
   useEffect(() => {
     if (isBrowser() && user && !window.MakerEmbeds) {
@@ -45,29 +44,12 @@ export default function MakerEnhanceClient({
     }
   }, []);
 
-  useEffect(
-    () => {
-      const handleRouteChange = () => {
-        const newUrl = getUrl();
-        if (newUrl !== url) {
-          setUrl(newUrl);
-        }
-      };
-
-      if (isBrowser() && "onnavigate" in window) {
-        window.addEventListener("navigate", handleRouteChange);
-        return () => {
-          window.removeEventListener("navigate", handleRouteChange);
-        };
-      } else {
-        const intervalId = setInterval(handleRouteChange, 100);
-        return () => {
-          clearInterval(intervalId);
-        };
-      }
-    },
-    [url]
-  );
+  useEffect(() => {
+    const newUrl = getUrl();
+    if (newUrl !== url) {
+      setUrl(newUrl);
+    }
+  });
 
   useEffect(
     () => {
