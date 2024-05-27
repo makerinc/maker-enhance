@@ -1,7 +1,7 @@
 /// <reference types="react" />
 interface MakerEnhanceClientProps {
     user: string;
-    index?: number;
+    id: string;
     scriptSrc: string;
 }
 declare global {
@@ -9,5 +9,5 @@ declare global {
         MakerEmbeds: any;
     }
 }
-export default function MakerEnhanceClient({ user, index, scriptSrc }: MakerEnhanceClientProps): JSX.Element;
+export default function MakerEnhanceClient({ user, id, scriptSrc }: MakerEnhanceClientProps): JSX.Element;
 export {};

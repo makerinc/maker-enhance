@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 
 interface MakerEnhanceClientProps {
   user: string;
-  index?: number;
+  id: string;
   scriptSrc: string;
 }
 
@@ -26,7 +26,7 @@ function run(): void {
 
 export default function MakerEnhanceClient({
   user,
-  index,
+  id,
   scriptSrc
 }: MakerEnhanceClientProps): JSX.Element {
   const getUrl = () => {
@@ -44,12 +44,28 @@ export default function MakerEnhanceClient({
     }
   }, []);
 
+  const changeUrl = (newUrl: string | undefined) => {
+    setUrl(newUrl);
+
+    const embed = document.querySelector(`[data-orig-id="${id}"]`);
+    if (embed && embed.parentElement) {
+      embed.parentElement.removeChild(embed);
+    }
+
+    const placeholder = document.querySelector(`#${id}`);
+    if (placeholder) {
+      placeholder.removeAttribute("data-maker-loaded");
+    }
+
+    run();
+  };
+
   useEffect(
     () => {
       const interval = setInterval(() => {
         const newUrl = getUrl();
         if (newUrl !== url) {
-          setUrl(newUrl);
+          changeUrl(newUrl);
         }
       }, 100);
 
@@ -57,14 +73,14 @@ export default function MakerEnhanceClient({
         clearInterval(interval);
       };
     },
-    [url]
+    [url, id]
   );
 
   useEffect(
     () => {
       run();
     },
-    [index, url]
+    [id]
   );
 
   return <></>;
