@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import history from "history/browser";
 
 interface MakerEnhanceClientProps {
   user: string;
@@ -24,14 +25,16 @@ function run(): void {
   }
 }
 
-export default function useMakerEnhance({
+export default function MakerEnhanceClient({
   user,
   index,
   scriptSrc
 }: MakerEnhanceClientProps): JSX.Element {
-  const [url, setUrl] = useState(
-    isBrowser() ? window.location.href : undefined
-  );
+  function getUrl() {
+    return `${location.pathname}${location.search}${location.hash}`;
+  }
+
+  const [url, setUrl] = useState(isBrowser() ? getUrl() : undefined);
 
   useEffect(() => {
     if (isBrowser() && user && !window.MakerEmbeds) {
@@ -43,11 +46,21 @@ export default function useMakerEnhance({
     }
   }, []);
 
-  useEffect(() => {
-    if (isBrowser() && window.location.href !== url) {
-      setUrl(window.location.href);
-    }
-  });
+  useEffect(
+    () => {
+      const unlisten = history.listen(({ location }) => {
+        const newUrl = getUrl();
+        if (newUrl !== url) {
+          setUrl(newUrl);
+        }
+      });
+
+      return () => {
+        unlisten();
+      };
+    },
+    [url]
+  );
 
   useEffect(
     () => {
