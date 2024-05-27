@@ -9,7 +9,7 @@
     "embed"
   ],
   "type": "module",
-  "main": "lib/index.js",
+  "main": "src/MakerEnhance.jsx",
   "author": "Pavel Linkesch",
   "license": "MIT",
   "repository": {

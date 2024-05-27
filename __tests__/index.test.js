@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import MakerEnhance from "../src/index";
+import MakerEnhance from "../src/MakerEnhance";
 
 let mocks = {};
 
