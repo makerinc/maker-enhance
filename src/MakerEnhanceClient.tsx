@@ -15,6 +15,7 @@ declare global {
           run: () => void;
         }
       | undefined;
+    maker_enhance_engine: { page_url: string } | undefined;
   }
 }
 
@@ -57,9 +58,22 @@ export default function MakerEnhanceClient({
 
     const embed = document.querySelector(`[data-orig-id="${id}"]`);
     const placeholder = document.querySelector(`#${id}`);
-    if (placeholder && embed && embed.parentElement) {
-      embed.parentElement.removeChild(embed);
-      placeholder.removeAttribute("data-maker-loaded");
+
+    if (
+      embed &&
+      embed.parentElement &&
+      placeholder &&
+      window.maker_enhance_engine
+    ) {
+      const currentUrl = btoa(
+        encodeURIComponent(window.maker_enhance_engine.page_url),
+      );
+      const embedUrl = embed.getAttribute("data-maker-embed-id");
+
+      if (currentUrl !== embedUrl) {
+        embed.parentElement.removeChild(embed);
+        placeholder.removeAttribute("data-maker-loaded");
+      }
     }
 
     run();
