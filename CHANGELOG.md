@@ -1,3 +1,9 @@
+
+# 2.0.0 / 2024-07-15
+
+  * Rewrite to typescript
+  * Support Next.js client components
+
 # 1.2.2 / 2023-07-13
 
 - Fix support for hydration
