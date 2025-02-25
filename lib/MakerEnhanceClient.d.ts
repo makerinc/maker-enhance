@@ -1,4 +1,3 @@
-/// <reference types="react" />
 interface MakerEnhanceClientProps {
     user: string;
     id: string;
