@@ -1,8 +1,11 @@
+# 2.0.1 / 2025-03-14
+
+- Fix support for React 19 by using different strategy to prevent rerender during hydration (#3)
 
 # 2.0.0 / 2024-07-15
 
-  * Rewrite to typescript
-  * Support Next.js client components
+- Rewrite to typescript
+- Support Next.js client components
 
 # 1.2.2 / 2023-07-13
 
