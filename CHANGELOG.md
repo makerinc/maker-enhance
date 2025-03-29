@@ -1,3 +1,7 @@
+# 2.0.2 / 2025-03-29
+
+- Use useMemo as a strategy to prevent rerender during hydration
+
 # 2.0.1 / 2025-03-14
 
 - Fix support for React 19 by using different strategy to prevent rerender during hydration (#3)
