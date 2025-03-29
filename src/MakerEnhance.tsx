@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import MakerEnhanceClient from "./MakerEnhanceClient";
 
 interface MakerEnhanceProps {
@@ -29,15 +29,19 @@ export default function MakerEnhance({
     ></div>
   `;
 
-  // If component was rendered on server, don't rerender on client
-  return isBrowser && document.getElementById(id) ? null : (
-    <>
-      <MakerEnhanceClient user={user} id={id} scriptSrc={scriptSrc} />
-      <div
-        className="js-maker-enhance-wrapper"
-        dangerouslySetInnerHTML={{ __html: html }}
-        suppressHydrationWarning={true}
-      />
-    </>
-  );
+  // Prevent rerendering of Maker iframe inside
+  const render = useMemo(() => {
+    return (
+      <>
+        <MakerEnhanceClient user={user} id={id} scriptSrc={scriptSrc} />
+        <div
+          className="js-maker-enhance-wrapper"
+          dangerouslySetInnerHTML={{ __html: html }}
+          suppressHydrationWarning={true}
+        />
+      </>
+    );
+  }, [user, id, scriptSrc, html]);
+
+  return render;
 }
