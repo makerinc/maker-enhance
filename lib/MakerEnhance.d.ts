@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface MakerEnhanceProps {
     user: string;
     instanceId?: string | number;

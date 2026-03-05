@@ -7,8 +7,6 @@ interface MakerEnhanceProps {
   loadingHeight?: number;
 }
 
-const isBrowser = typeof window !== "undefined";
-
 export default function MakerEnhance({
   user,
   instanceId,
@@ -20,7 +18,7 @@ export default function MakerEnhance({
   }`;
 
   const html = `
-    <script src="${scriptSrc}" id="maker-enhance-script" async="true"></script>
+    <script src="${scriptSrc}" id="maker-enhance-script" async></script>
     <div
       id="${id}"
       class="js-maker-enhance-static-mount"

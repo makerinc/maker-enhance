@@ -6,7 +6,7 @@ exports[`MakerEnhance renders div with default index 1`] = `
   dangerouslySetInnerHTML={
     {
       "__html": "
-    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async="true"></script>
+    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async></script>
     <div
       id="js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-0"
       class="js-maker-enhance-static-mount"
@@ -26,7 +26,7 @@ exports[`MakerEnhance renders div with provided index 1`] = `
   dangerouslySetInnerHTML={
     {
       "__html": "
-    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async="true"></script>
+    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async></script>
     <div
       id="js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-2"
       class="js-maker-enhance-static-mount"
@@ -46,7 +46,7 @@ exports[`MakerEnhance should support loadingHeight prop 1`] = `
   dangerouslySetInnerHTML={
     {
       "__html": "
-    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async="true"></script>
+    <script src="https://app.maker.co/enhance/linkesch.js" id="maker-enhance-script" async></script>
     <div
       id="js-maker-static-enhance-v1-218c2d7d-62da-499e-9e74-93201e1b3d56-0"
       class="js-maker-enhance-static-mount"
