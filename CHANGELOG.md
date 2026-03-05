@@ -1,3 +1,10 @@
+
+2.0.3 / 2026-03-05
+==================
+
+- Fix stale build
+- Prevent script being inserted multiple times
+
 # 2.0.2 / 2025-03-29
 
 - Use useMemo as a strategy to prevent rerender during hydration
