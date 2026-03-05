@@ -1,6 +1,8 @@
+# 2.0.4 / 2026-03-05
 
-2.0.3 / 2026-03-05
-==================
+- Fix wrong condition breaking rendering when moving from page to page
+
+# 2.0.3 / 2026-03-05
 
 - Fix stale build
 - Prevent script being inserted multiple times
