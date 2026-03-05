@@ -44,12 +44,7 @@ export default function MakerEnhanceClient({
   const [url, setUrl] = useState(getUrl());
 
   useEffect(() => {
-    if (
-      isBrowser() &&
-      user &&
-      !window.MakerEmbeds &&
-      !document.getElementById("maker-enhance-script")
-    ) {
+    if (isBrowser() && user && !window.MakerEmbeds) {
       const script = document.createElement("script");
       script.id = "maker-enhance-script";
       script.src = scriptSrc;
