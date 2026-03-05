@@ -1,3 +1,7 @@
+# 2.0.5 / 2026-03-05
+
+- Version bump
+
 # 2.0.4 / 2026-03-05
 
 - Fix wrong condition breaking rendering when moving from page to page
