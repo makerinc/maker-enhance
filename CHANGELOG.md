@@ -1,3 +1,7 @@
+# 2.0.6 / 2026-03-06
+
+- Fix page_url not being updated soon enough causing stale content to show up
+
 # 2.0.5 / 2026-03-05
 
 - Version bump
