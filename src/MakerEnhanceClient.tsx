@@ -56,15 +56,13 @@ export default function MakerEnhanceClient({
   const changeUrl = (newUrl: string | undefined) => {
     setUrl(newUrl);
 
+    // Run MakerEmbeds after changing the URL, so page_url is updated synchronously
+    run();
+
     const embed = document.querySelector(`[data-orig-id="${id}"]`);
     const placeholder = document.querySelector(`#${id}`);
 
-    if (
-      embed &&
-      embed.parentElement &&
-      placeholder &&
-      window.maker_enhance_engine
-    ) {
+    if (embed?.parentElement && placeholder && window.maker_enhance_engine) {
       const currentUrl = btoa(
         encodeURIComponent(window.maker_enhance_engine.page_url),
       );
@@ -73,10 +71,10 @@ export default function MakerEnhanceClient({
       if (currentUrl !== embedUrl) {
         embed.parentElement.removeChild(embed);
         placeholder.removeAttribute("data-maker-loaded");
+        // Run MakerEmbeds again after removing the old embed, so new one can be loaded
+        run();
       }
     }
-
-    run();
   };
 
   useEffect(() => {
