@@ -49,6 +49,7 @@ export default function MakerEnhanceClient({
       script.id = "maker-enhance-script";
       script.src = scriptSrc;
       script.async = true;
+      script.fetchPriority = "high";
       document.head.appendChild(script);
     }
   }, []);

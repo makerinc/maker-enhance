@@ -18,7 +18,7 @@ export default function MakerEnhance({
   }`;
 
   const html = `
-    <script src="${scriptSrc}" id="maker-enhance-script" async></script>
+    <script async fetchpriority="high" id="maker-enhance-script" src="${scriptSrc}"></script>
     <div
       id="${id}"
       class="js-maker-enhance-static-mount"
