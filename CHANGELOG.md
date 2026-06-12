@@ -1,3 +1,7 @@
+# 2.0.7 / 2026-06-12
+
+- Add fetchPriority="high" to script tag to improve loading performance
+
 # 2.0.6 / 2026-03-06
 
 - Fix page_url not being updated soon enough causing stale content to show up
